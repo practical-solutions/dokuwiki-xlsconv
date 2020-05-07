@@ -3,5 +3,5 @@ author Gero Gothe
 email  practical@medizin-lernen.de
 date   2020-05-07
 name   XLS to DokuWiki Conversion Tool
-desc   Integration of the Excel2DokuWiki-Tool into a plugin
+desc   Integration of the xls2dw-conversion tips into a plugin
 url    https://github.com/practical-solutions/dokuwiki-xlsconv
