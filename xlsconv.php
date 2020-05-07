@@ -1,6 +1,22 @@
 <script type="text/javascript" charset="utf-8">
 function selText() {
-    document.getElementById("txt1").select()
+    document.getElementById("txt1").select();
+}
+
+function strip_tags(){
+    var t = document.getElementById("txt1").value;
+    document.getElementById("txt1").value = t.replace(/(<([^>]+)>)/ig,"");
+}
+
+function remove_comment () {
+    var t = document.getElementById("txt1").value;
+    document.getElementById("txt1").value = t.replace(/(\n> )/g,"\n");
+}
+
+
+function remove_dot () {
+    var t = document.getElementById("txt1").value;
+    document.getElementById("txt1").value = t.replace(/(\n•)/g,"  *");
 }
 </script>
 
@@ -53,7 +69,7 @@ if ($fromto=="E2W"){
 }
 ?>
 
-<div onload="selText()">
+<div onenter="selText()">
     <h1>WIKI2EXCEL converter</h1>
  
     Copy and paste your Excel or Wiki table below and press [Convert!]<br/>
@@ -63,6 +79,9 @@ if ($fromto=="E2W"){
         <input type="radio" name="fromto" value="E2W" checked>Excel - Wiki<br>
         <input type="radio" name="fromto" value="W2E">Wiki - Excel<br><br>
         <INPUT TYPE=SUBMIT VALUE="Convert!"><br/><br>
+        <input type="button" onclick="strip_tags();" value="Strip tags">
+        <input type="button" onclick="remove_comment();" value="Remove comment">
+        <input type="button" onclick="remove_dot();" value="Remove dot">
         <textarea id="txt1" name="s" wrap="off"  rows=50 ><?=$s ?></textarea>
     </form>
 
