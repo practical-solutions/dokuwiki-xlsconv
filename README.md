@@ -1,6 +1,6 @@
 # DokuWiki-Plugin: XLS to DokuWiki-Markup Converter
 
-Integration of the [Excel2DokuWiki](https://github.com/Taggic/Excel2DokuWiki)-Tool into a DokuWiki-Plugin
+Integration of the xls2dw-tips into a DokuWiki-Plugin
 
 ## Usage
 Go to the converter in the admin-section of DokuWiki. Copy a table from excel and paste it to the text form. Press convert and copy the result into your page.
