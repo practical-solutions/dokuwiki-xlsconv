@@ -3,6 +3,21 @@ function selText() {
     document.getElementById("txt1").select();
 }
 
+function greater_smaller(r=0){
+    if (r==0) {
+        var t = document.getElementById("txt1").value;
+        t = t.replace(/([ |\d|\n]<[ |\d])/ig,"&lt;");
+        t = t.replace(/([ |\d]>[ |\d])/ig,"&gt;");
+        document.getElementById("txt1").value = t;
+    } else {
+        var t = document.getElementById("txt1").value;
+        t = t.replace(/(&lt;)/g,"<");
+        t = t.replace(/(&gt;)/g,">");
+        document.getElementById("txt1").value = t;
+    }
+}
+
+
 function strip_tags(){
     var t = document.getElementById("txt1").value;
     document.getElementById("txt1").value = t.replace(/(<([^>]+)>)/ig,"");
@@ -17,6 +32,16 @@ function remove_comment () {
 function remove_dot () {
     var t = document.getElementById("txt1").value;
     document.getElementById("txt1").value = t.replace(/(\n•)/g,"  *");
+}
+
+function all_conv(){
+    greater_smaller();
+    strip_tags();
+    greater_smaller(1);
+    remove_comment();
+    remove_dot();
+    
+    selText();
 }
 </script>
 
@@ -79,10 +104,12 @@ if ($fromto=="E2W"){
         <input type="radio" name="fromto" value="E2W" checked>Excel - Wiki<br>
         <input type="radio" name="fromto" value="W2E">Wiki - Excel<br><br>
         <INPUT TYPE=SUBMIT VALUE="Convert!"><br/><br>
+        <input type="button" onclick="greater_smaller();" value="Try convert > and <">
         <input type="button" onclick="strip_tags();" value="Strip tags">
         <input type="button" onclick="remove_comment();" value="Remove comment">
         <input type="button" onclick="remove_dot();" value="Remove dot">
-        <textarea id="txt1" name="s" wrap="off"  rows=50 ><?=$s ?></textarea>
+        <input style="background:lightgreen" type="button" onclick="all_conv();" value="Perform all actions">
+        <textarea style="margin-top:5px" id="txt1" name="s" wrap="off"  rows=50 ><?=$s ?></textarea> 
     </form>
 
     <span style="font-size:80%">
