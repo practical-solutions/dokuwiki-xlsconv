@@ -34,6 +34,14 @@ function remove_dot () {
     document.getElementById("txt1").value = t.replace(/(\n•)/g,"  *");
 }
 
+/* All headings one level down */
+function headings_down(){
+    var t = document.getElementById("txt1").value;
+    document.getElementById("txt1").value = t.replace(/(======)/g,"=======");
+    var t = document.getElementById("txt1").value;
+    document.getElementById("txt1").value = t.replace(/(===)/g,"==");
+}
+
 function all_conv(){
     greater_smaller();
     strip_tags();
@@ -47,8 +55,8 @@ function all_conv(){
 
 <style type="text/css">
 .xlsconv__form {
-	border: 1px solid #ccc;
-	padding: 1em;
+    border: 1px solid #ccc;
+    padding: 1em;
 }
 
 #txt1 {
@@ -109,6 +117,7 @@ if ($fromto=="E2W"){
         <input type="button" onclick="remove_comment();" value="Remove comment">
         <input type="button" onclick="remove_dot();" value="Remove dot">
         <input style="background:lightgreen" type="button" onclick="all_conv();" value="Perform all actions">
+        <br><br><input type="button" onclick="headings_down();" value="Downlevel Headings">
         <textarea style="margin-top:5px" id="txt1" name="s" wrap="off"  rows=50 ><?=$s ?></textarea> 
     </form>
 
