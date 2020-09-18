@@ -10,3 +10,10 @@ Go to the converter in the admin-section of DokuWiki. Copy a table from excel an
 * https://www.dokuwiki.org/tips:xls2wiki
 * https://www.dokuwiki.org/tips:excel_macro
 * http://www.fristercons.de/fcon/doku.php?id=xls2dw:start#voteanker_2_Excel2Dokuwiki
+
+
+## Compatibility
+
+Tested with
+* PHP **7.3**
+* DokuWiki / **Hogfather**

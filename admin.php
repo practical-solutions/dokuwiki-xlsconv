@@ -8,7 +8,7 @@
 
 class admin_plugin_xlsconv extends DokuWiki_Admin_Plugin {
      
-	function getMenuText(){
+	function getMenuText($language){
 		return "XLS to DokuWiki Converter";
 	}
 	
